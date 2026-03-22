@@ -144,6 +144,26 @@ namespace G_NET_26_OOP_2
             //-------------------------------*/
             #endregion
             #endregion
+            #region Q4
+            //a) What does the `static` keyword mean on `TotalOrders`?
+            //How is it different from the `Item` field?
+            //Answer:
+            //A static keyord here means that 'TotalOrders' field belongs to the class 
+            //intself and not to any specfic instanc4 (object) of the class. This 
+            //means that all instances share the same value of the field 'TotalOrders'.
+            //As for 'Item' field, it is an instance field as the static keyword does not exist,
+            //which means that each instance of the class has its own copy of the 'Item' field.
+            //------------------------------------
+            //b)Can a static method inside `Order` access the `Item` field directly?
+            //Why or why not?
+            //Answer:
+            //No, a static method inside the `Order` class cannot access the `Item` field directly
+            //because `Item` is an instance field, and static methods do not have access to instance members.
+            //Static methods can only access static members of the class. To access the `Item` field,
+            //a static method would need to create an instance of the `Order` class or receive an instance
+            //as a parameter.
+
+            #endregion
         }
     }
 }
