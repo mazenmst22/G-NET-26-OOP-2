@@ -63,6 +63,87 @@ namespace G_NET_26_OOP_2
             //}
 
             #endregion
+            #region Q3
+            //a) What is `this[int index]` called? Explain its purpose.
+            //Answer:
+            //`this[int index]` is called an indexer in C#. It allows an
+            //object to be indexed like an array. The purpose of an indexer is to provide a way to access elements of a class or struct
+            //using array-like syntax. It is defined using the `this` keyword followed by an index parameter,
+            //and it can have a getter or setter to define how the elements are accessed or modified.
+            //b)1)What happens if someone writes `register[10] = "Ali";` ?
+            //Answer:
+            //this will throw IndexOutOfRange() exception because the index 10 is out of the bounds of the array or Collection.
+            //2)How could you make the indexer safer?
+            //To make the indexer safe, we should check the bounds before getting the value
+            //of the element in the collection or setting it.
+            //
+            //Example of getting the indexer safe:
+            #region Example Q3
+            //-------------------------------
+            //    public string this[int index]
+            //{
+            //    get
+            //    {
+            //        if (index >= 0 && index < names.Length)
+            //        {
+            //            return names[index];
+            //        }
+            //        return -1;
+            //    }
+            //    set
+            //    {
+            //        if (index >= 0 && index < names.Length)
+            //        {
+            //            names[index] = value;
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("Student index Out of bounds. Try registering with a valid index");
+            //        }
+            //    }
+            //}
+            //--------------------------------
+            #endregion
+            //c)can a class can have more than one indexer?
+            //if yes, give an example of when that would be useful.
+            //Answer:
+            //Yes, a class can have more than one indexer.
+            //This can be useful when you want to provide different ways to access the data in the class.
+            //This known as indexer overloading, where you can have multiple indexers with different parameter types
+            //or numbers of parameters.
+            //Example:
+            #region Example2 Q3
+            /*-------------------------------
+            public class StudentRegister
+            {
+                private string[] names = new string[5];
+                public string this[int index] //Indexer1
+                {
+                    get { return names[index]; }
+                    set { names[index] = value; }
+                }
+                public int this[string name] //Indexer2
+                {
+                    get 
+                    { 
+
+                        for (int i = 0; i < names.Length; i++)
+                        {
+                            if (names[i] == name) 
+                            {
+                                return i; 
+                            }
+                        }
+                        return -1;
+                    }
+        
+                }
+            }
+
+
+            //-------------------------------*/
+            #endregion
+            #endregion
         }
     }
 }
