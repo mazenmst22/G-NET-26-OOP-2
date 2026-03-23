@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace G_NET_26_OOP_2
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             #region Q1
             //    public class BankAccount
