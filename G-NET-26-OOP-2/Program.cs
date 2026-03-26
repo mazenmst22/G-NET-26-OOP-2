@@ -1,4 +1,6 @@
-﻿using System;
+﻿using G_NET_26_OOP_1_2_.Movie_Ticket_Booking_System;
+using G_NET_26_OOP_2.MovieTicketBookingSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -163,6 +165,61 @@ namespace G_NET_26_OOP_2
             //a static method would need to create an instance of the `Order` class or receive an instance
             //as a parameter.
 
+            #endregion
+            #region MovieTicketBookingSystem
+            Cinema Cinema01 = new Cinema();
+            Console.WriteLine("========== Ticket Booking ==========\n");
+            for (int i = 1; i <= 3; i++)
+            {
+                Console.WriteLine($"Enter data for Ticket {i}:");
+                Console.Write("Movie Name: ");
+                string movieName = Console.ReadLine();
+                Console.Write("Ticket Type (0=Standard, 1=VIP, 2=IMAX): ");
+                TicketType type = (TicketType)int.Parse(Console.ReadLine());
+                Console.Write("Seat Row (A-Z): ");
+                char row = char.Parse(Console.ReadLine().ToUpper());
+                Console.Write("Seat Number: ");
+                int seatNum = int.Parse(Console.ReadLine());
+                Console.Write("Price: ");
+                double price = double.Parse(Console.ReadLine());
+                SeatLocation seat = new SeatLocation(row, seatNum);
+                Ticket newTicket = new Ticket(movieName, type, seat, price);
+                Cinema01.AddTicket(newTicket);
+                Console.WriteLine();
+            }
+            Console.WriteLine("========== All Tickets ==========\n");
+            for (int i = 0; i < 3; i++)
+            {
+                Ticket t = Cinema01[i];
+                if (t != null)
+                {
+                    Console.WriteLine($"Ticket #{t.TicketId} | {t.MovieName} | {t.Type} | Seat: {t.Seat.Row}-{t.Seat.Number} | Price: {t.Price} EGP | After Tax: {t.PriceAfterTax} EGP");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("========== Search by Movie ==========");
+            Console.Write("Enter movie name to search: ");
+            string searchName = Console.ReadLine();
+
+       
+            Ticket foundTicket = Cinema01[searchName];
+
+            if (foundTicket != null)
+            {
+                Console.WriteLine($"Found: Ticket #{foundTicket.TicketId} | {foundTicket.MovieName} | {foundTicket.Type} | Seat: {foundTicket.Seat.Row}-{foundTicket.Seat.Number} | Price: {foundTicket.Price} EGP\n");
+            }
+            else
+            {
+                Console.WriteLine("Ticket not found.\n");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            //Last part (d,e,f):
+            Console.WriteLine($"Total Tickets Sold: {Ticket.GetTotalTicketsSold()}");
+            Console.WriteLine($"Generated Booking Ref 1: {BookingHelper.GenerateBookingReference()}");
+            Console.WriteLine($"Generated Booking Ref 2: {BookingHelper.GenerateBookingReference()}");
+            double groupDiscountTotal = BookingHelper.CalcGroupDiscount(5, 80.0);
+            Console.WriteLine($"Group Discount Total: {groupDiscountTotal} EGP");
             #endregion
         }
     }

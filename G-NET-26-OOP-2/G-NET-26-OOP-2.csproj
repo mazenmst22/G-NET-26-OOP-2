@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieTicketBookingSystem\BookingHelper.cs" />
+    <Compile Include="MovieTicketBookingSystem\Cinema.cs" />
     <Compile Include="MovieTicketBookingSystem\SeatLocation.cs" />
     <Compile Include="MovieTicketBookingSystem\Ticket.cs" />
     <Compile Include="MovieTicketBookingSystem\TicketType.cs" />
